@@ -8,9 +8,7 @@ defmodule Xadrez.Router do
     plug :protect_from_forgery
   end
 
-  scope "/", Xadrez do
-    pipe_through :browser
+  pipe_through :browser
 
-    get "/", PageController, :index
-  end
+  get "/", Xadrez.PageController, :index, as: :root
 end
