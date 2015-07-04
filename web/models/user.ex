@@ -4,8 +4,10 @@ defmodule Xadrez.User do
   schema "users" do
     field :email, :string
     field :password, :string
-
     timestamps
+
+    has_many :white_games, Xadrez.User, foreign_key: :white_id
+    has_many :black_games, Xadrez.User, foreign_key: :black_id
   end
 
   @required_fields ~w(email password)

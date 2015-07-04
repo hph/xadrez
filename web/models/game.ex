@@ -2,11 +2,11 @@ defmodule Xadrez.Game do
   use Xadrez.Web, :model
 
   schema "games" do
-    field :white_id, :integer
-    field :black_id, :integer
     field :fen, :string
-
     timestamps
+
+    belongs_to :white, Xadrez.User, foreign_key: :white_id
+    belongs_to :black, Xadrez.User, foreign_key: :black_id
   end
 
   @required_fields ~w(white_id black_id fen)
