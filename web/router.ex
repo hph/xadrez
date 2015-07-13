@@ -11,4 +11,5 @@ defmodule Xadrez.Router do
   pipe_through :browser
 
   get "/", Xadrez.PageController, :index, as: :root
+  get "/:uuid", Xadrez.PageController, :show
 end
